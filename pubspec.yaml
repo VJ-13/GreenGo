@@ -38,6 +38,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   ionicons: ^0.2.1
+  page_transition: "^2.0.9"
+  lottie: ^2.1.0
+  easy_sidemenu: ^0.4.1
+  table_calendar: ^3.0.8
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +69,7 @@ flutter:
   assets:
     - assets/places/
     - assets/icons/
+    - assets/lot/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -81,6 +87,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: honey
+      fonts:
+      - asset: ast/ft/hs.ttf
+    - family: comic
+      fonts:
+      - asset: ast/ft/hc.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
