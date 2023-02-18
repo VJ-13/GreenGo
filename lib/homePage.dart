@@ -7,6 +7,8 @@ import 'package:myapp/widgets/location_card.dart';
 import 'package:myapp/widgets/nearby_places.dart';
 import 'package:myapp/widgets/recommended_places.dart';
 import 'package:myapp/widgets/tourist_places.dart';
+import 'userInput/theme.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -81,13 +83,23 @@ class HomePage extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          onTap: (value) {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.fade,
+                    duration: const Duration(milliseconds: 500),
+                    child: ThemeP()));
+          },
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Ionicons.home_outline), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Ionicons.car_outline), label: "Car"),
             BottomNavigationBarItem(
-                icon: Icon(Ionicons.location_outline), label: "Location"),
+              icon: Icon(Ionicons.location_outline),
+              label: "Location",
+            ),
             BottomNavigationBarItem(
                 icon: Icon(Ionicons.person_outline), label: "Person")
           ]),

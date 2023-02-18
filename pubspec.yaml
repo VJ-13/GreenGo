@@ -43,6 +43,7 @@ dependencies:
   easy_sidemenu: ^0.4.1
   table_calendar: ^3.0.8
   url_launcher: ^6.1.7
+  flutter_image_slideshow: ^0.1.4
 
 dev_dependencies:
   flutter_test:
@@ -90,10 +91,10 @@ flutter:
   fonts:
     - family: honey
       fonts:
-      - asset: ast/ft/hs.ttf
+      - asset: assets/ft/hs.ttf
     - family: comic
       fonts:
-      - asset: ast/ft/hc.ttf
+      - asset: assets/ft/hc.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
