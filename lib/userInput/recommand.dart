@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/boxfile.dart';
+import 'package:myapp/layout/lay1.dart';
 import 'theme.dart';
 
 class RecommandPage extends StatefulWidget {
@@ -68,6 +68,17 @@ class _RecommandPageState extends State<RecommandPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return PicLayout(viewimg: parkInfo, title: "Recommandation Park");
+    return Center(
+      child: Column(
+        children: [
+          for (var i = 0; i < parkInfo.length; i++)
+            LayOutT1(
+                dis: 4.5,
+                img: parkInfo[i][1],
+                title: parkInfo[i][2],
+                webTo: parkInfo[i][6])
+        ],
+      ),
+    );
   }
 }

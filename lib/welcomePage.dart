@@ -23,6 +23,7 @@ class WelcomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Spacer(),
             ImageSlideshow(
                 isLoop: true,
                 initialPage: 0,

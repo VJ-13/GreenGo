@@ -9,12 +9,14 @@ import 'package:myapp/widgets/recommended_places.dart';
 import 'package:myapp/widgets/tourist_places.dart';
 import 'userInput/theme.dart';
 import 'package:page_transition/page_transition.dart';
+import 'surpriseme/surpriseMain.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> buttonWigt = [ThemeP(), SurpriseMe()];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -89,7 +91,7 @@ class HomePage extends StatelessWidget {
                 PageTransition(
                     type: PageTransitionType.fade,
                     duration: const Duration(milliseconds: 500),
-                    child: ThemeP()));
+                    child: buttonWigt[value]));
           },
           items: [
             BottomNavigationBarItem(
