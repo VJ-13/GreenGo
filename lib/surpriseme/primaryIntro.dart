@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:lottie/lottie.dart';
+import 'package:myapp/globals.dart' as global;
+import 'dart:math';
 
 class primIntro extends StatefulWidget {
   final String contents;
@@ -26,9 +28,21 @@ class _primIntroState extends State<primIntro> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: BorderSide(color: Colors.black, width: 3))),
+          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(20))),
       icon: Lottie.asset('assets/lot/surp.json', height: 35),
-      label: Text("Surprise Me"),
+      label: Text(
+        "Surprise Me",
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      ),
       onPressed: () {
+        setState(() {
+          global.rng = Random().nextInt(global.parkInfo.length);
+        });
         showGeneralDialog(
             barrierColor: Colors.black.withOpacity(0.5),
             transitionDuration: Duration(milliseconds: 300),
@@ -50,13 +64,17 @@ class _primIntroState extends State<primIntro> {
                           style: BorderStyle.solid,
                           color: Colors.white,
                         ),
-                        title: Text(
-                          widget.title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "honey",
-                          ),
+                        title: Row(
+                          children: [
+                            Text(
+                              widget.title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "honey",
+                              ),
+                            ),
+                          ],
                         ),
                         children: [
                           Image(image: AssetImage(widget.img)),

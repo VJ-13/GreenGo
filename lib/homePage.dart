@@ -10,6 +10,7 @@ import 'package:myapp/widgets/tourist_places.dart';
 import 'userInput/theme.dart';
 import 'package:page_transition/page_transition.dart';
 import 'surpriseme/surpriseMain.dart';
+import 'layout/buttomNavi.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -81,30 +82,7 @@ class HomePage extends StatelessWidget {
           NearbyPlaces()
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          onTap: (value) {
-            Navigator.push(
-                context,
-                PageTransition(
-                    type: PageTransitionType.fade,
-                    duration: const Duration(milliseconds: 500),
-                    child: buttonWigt[value]));
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Ionicons.home_outline), label: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(Ionicons.car_outline), label: "Car"),
-            BottomNavigationBarItem(
-              icon: Icon(Ionicons.location_outline),
-              label: "Location",
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Ionicons.person_outline), label: "Person")
-          ]),
+      bottomNavigationBar: ButtomNavi(),
     );
   }
 }

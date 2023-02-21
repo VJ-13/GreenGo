@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
+import 'layout/buttomNavi.dart';
 import 'package:page_transition/page_transition.dart';
 import 'globals.dart' as globals;
 
@@ -37,6 +37,7 @@ class _MCModeState extends State<MCMode> {
       appBar: AppBar(
         title: Text(widget.title!),
       ),
+      bottomNavigationBar: ButtomNavi(),
       body: Center(
         child: Column(
           children: [

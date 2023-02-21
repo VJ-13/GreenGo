@@ -1,5 +1,6 @@
 library my_prj.globals;
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 List userInput = [];
@@ -77,3 +78,7 @@ List<TouristPlacesModel> touristPlaces = [
 ];
 
 List<String> ChosenTags = [];
+
+bool refreshSurp = false;
+
+int rng = Random().nextInt(parkInfo.length);

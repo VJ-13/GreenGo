@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:myapp/layout/lay2.dart';
 import 'package:myapp/globals.dart' as globas;
 import 'primaryIntro.dart';
-import 'dart:math';
+import 'package:myapp/layout/buttomNavi.dart';
 
 class SurpriseMe extends StatefulWidget {
   const SurpriseMe({super.key});
@@ -13,23 +13,29 @@ class SurpriseMe extends StatefulWidget {
 }
 
 class _SurpriseMeState extends State<SurpriseMe> {
-  var rng = Random().nextInt(globas.parkInfo.length);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(child: Lottie.asset('assets/lot/walk.json')),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                child: Lottie.asset('assets/lot/walk.json',
+                    height: 300, fit: BoxFit.fitHeight)),
             primIntro(
-                contents: globas.parkInfo[rng][2],
-                title: globas.parkInfo[rng][1],
-                themeC: globas.parkInfo[rng][4],
-                url: globas.parkInfo[rng][5],
-                img: globas.parkInfo[rng][0],
-                butIcon: globas.parkInfo[rng][3]),
+                contents: globas.parkInfo[globas.rng][2],
+                title: globas.parkInfo[globas.rng][1],
+                themeC: globas.parkInfo[globas.rng][4],
+                url: globas.parkInfo[globas.rng][5],
+                img: globas.parkInfo[globas.rng][0],
+                butIcon: globas.parkInfo[globas.rng][3]),
             Container(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   for (var i = 0; i < globas.touristPlaces.length; i++)
                     TagIcon(
@@ -37,10 +43,14 @@ class _SurpriseMeState extends State<SurpriseMe> {
                         label: globas.touristPlaces[i].name)
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
+      bottomNavigationBar: ButtomNavi(),
     );
   }
 }

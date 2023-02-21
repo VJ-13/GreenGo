@@ -12,11 +12,18 @@ class TagIcon extends StatefulWidget {
 }
 
 class _TagIconState extends State<TagIcon> {
+  bool tagSelected = false;
   @override
   Widget build(BuildContext context) {
     return InputChip(
+      selectedColor: Colors.lightGreenAccent.shade200,
+      selected: tagSelected,
+      padding: EdgeInsets.all(0.5),
       onPressed: () {
         globals.ChosenTags.add(widget.label);
+        setState(() {
+          tagSelected = !tagSelected;
+        });
       },
       label: Text(widget.label),
       avatar: CircleAvatar(
