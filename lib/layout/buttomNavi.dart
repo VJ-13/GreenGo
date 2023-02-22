@@ -3,6 +3,7 @@ import 'package:myapp/userInput/theme.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:myapp/surpriseme/surpriseMain.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:myapp/welcomeRay.dart';
 
 class ButtomNavi extends StatefulWidget {
   const ButtomNavi({super.key});
@@ -12,7 +13,7 @@ class ButtomNavi extends StatefulWidget {
 }
 
 class _ButtomNaviState extends State<ButtomNavi> {
-  List<Widget> buttonWigt = [ThemeP(), SurpriseMe()];
+  List<Widget> buttonWigt = [ThemeP(), SurpriseMe(), WelcomeR()];
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(

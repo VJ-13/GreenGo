@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/welcomePage.dart';
+import 'welcomeRay.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Travel App',
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: WelcomeR(),
       theme: ThemeData(
           scaffoldBackgroundColor: Color(0xFFCCE8FF),
           primarySwatch: Colors.blue,
