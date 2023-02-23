@@ -11,52 +11,74 @@ import 'userInput/theme.dart';
 import 'package:page_transition/page_transition.dart';
 import 'surpriseme/surpriseMain.dart';
 import 'layout/buttomNavi.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int trans = 1;
+  @override
   Widget build(BuildContext context) {
-    List<Widget> buttonWigt = [ThemeP(), SurpriseMe()];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blue.shade700,
+        backgroundColor: Colors.blue.shade500,
         foregroundColor: Colors.black,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Good Morning"),
-            Text(
-              "Tom",
-              style: Theme.of(context).textTheme.labelMedium,
-            )
-          ],
-        ),
         actions: [
-          CustomIconButton(icon: Icon(Ionicons.search_outline)),
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 12.0),
-            child: CustomIconButton(icon: Icon(Ionicons.notifications_outline)),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  trans = trans * -1;
+                  print(trans);
+                });
+              },
+              child: Icon(Icons.translate),
+            ),
           ),
         ],
+        title: trans > 0 ? Text("早上好！") : Text("Good Morning"),
       ),
       body: ListView(
         padding: EdgeInsets.all(14.0),
         children: [
-          LocationCard(),
+          LocationCard(
+            trans: trans,
+          ),
           SizedBox(
             height: 15,
           ),
-          TouristPlaces(),
+          TouristPlaces(
+            trans: trans,
+          ),
           SizedBox(
             height: 10,
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text(
+          //       "Recommendation",
+          //       style: Theme.of(context).textTheme.headline6,
+          //     ),
+          //     TextButton(onPressed: () {}, child: Text("View All"))
+          //   ],
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // RecommendedPlaces(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recommendation",
+                trans < 0 ? "Nearby From You" : "附近的地点",
                 style: Theme.of(context).textTheme.headline6,
               ),
               TextButton(onPressed: () {}, child: Text("View All"))
@@ -65,21 +87,9 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          RecommendedPlaces(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Nearby From You",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              TextButton(onPressed: () {}, child: Text("View All"))
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          NearbyPlaces()
+          NearbyPlaces(
+            trans: trans,
+          )
         ],
       ),
       bottomNavigationBar: ButtomNavi(),

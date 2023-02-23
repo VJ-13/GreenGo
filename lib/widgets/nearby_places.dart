@@ -3,7 +3,8 @@ import 'package:myapp/nearby_places_model.dart';
 import 'package:myapp/widgets/distance.dart';
 
 class NearbyPlaces extends StatelessWidget {
-  const NearbyPlaces({Key? key}) : super(key: key);
+  final int trans;
+  const NearbyPlaces({required this.trans, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,9 @@ class NearbyPlaces extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Text(
-                                nearbyPlaces[index].name,
+                                trans < 0
+                                    ? nearbyPlaces[index].name
+                                    : nearbyPlacesCN[index].name,
                                 // ignore: prefer_const_constructors
                                 style: TextStyle(
                                   fontSize: 16,

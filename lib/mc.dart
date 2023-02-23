@@ -44,7 +44,7 @@ class _MCModeState extends State<MCMode> {
             for (var i = 0; i < widget.material!.length; i++)
               Container(
                   margin: EdgeInsets.only(top: _screenH / 25),
-                  height: _screenH / widget.material!.length / 1.5,
+                  height: _screenH / widget.material!.length / 1.8,
                   width: _screenWidth / 1.3,
                   child: ElevatedButton.icon(
                       style:

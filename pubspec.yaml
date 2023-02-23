@@ -44,6 +44,8 @@ dependencies:
   table_calendar: ^3.0.8
   url_launcher: ^6.1.7
   flutter_image_slideshow: ^0.1.4
+  flutter_translate: ^4.0.3
+  flutter_localization: ^0.1.10
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,7 @@ flutter:
     - assets/icons/
     - assets/lot/
     - assets/img/
+    - assets/i18n
 
   # To add assets to your application, add an assets section, like this:
   # assets:

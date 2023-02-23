@@ -4,6 +4,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:myapp/surpriseme/surpriseMain.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:myapp/welcomeRay.dart';
+import 'package:myapp/homePage.dart';
 
 class ButtomNavi extends StatefulWidget {
   const ButtomNavi({super.key});
@@ -13,13 +14,11 @@ class ButtomNavi extends StatefulWidget {
 }
 
 class _ButtomNaviState extends State<ButtomNavi> {
-  List<Widget> buttonWigt = [ThemeP(), SurpriseMe(), WelcomeR()];
+  List<Widget> buttonWigt = [SurpriseMe(), HomePage(), ThemeP()];
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
         onTap: (value) {
           Navigator.push(
               context,
@@ -30,15 +29,12 @@ class _ButtomNaviState extends State<ButtomNavi> {
         },
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Ionicons.home_outline), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Ionicons.car_outline), label: "Car"),
-          BottomNavigationBarItem(
-            icon: Icon(Ionicons.location_outline),
-            label: "Location",
+            icon: Icon(Icons.celebration),
+            label: "Surprise",
           ),
           BottomNavigationBarItem(
-              icon: Icon(Ionicons.person_outline), label: "Person")
+              icon: Icon(Ionicons.home_outline), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Ionicons.search), label: "Find"),
         ]);
   }
 }

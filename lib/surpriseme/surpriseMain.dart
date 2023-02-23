@@ -15,27 +15,34 @@ class SurpriseMe extends StatefulWidget {
 class _SurpriseMeState extends State<SurpriseMe> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 10,
+            const Spacer(),
+            Text(
+              "Surprise Me With...   ",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'honey',
+                  fontWeight: FontWeight.bold,
+                  fontSize: height * 0.055),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Container(
-                child: Lottie.asset('assets/lot/walk.json',
-                    height: 300, fit: BoxFit.fitHeight)),
-            primIntro(
-                contents: globas.parkInfo[globas.rng][2],
-                title: globas.parkInfo[globas.rng][1],
-                themeC: globas.parkInfo[globas.rng][4],
-                url: globas.parkInfo[globas.rng][5],
-                img: globas.parkInfo[globas.rng][0],
-                butIcon: globas.parkInfo[globas.rng][3]),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              height: height * 0.2,
+              width: width * 0.8,
+              child: GridView.count(
+                crossAxisCount: 3,
+                childAspectRatio: 3,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 15,
                 children: [
                   for (var i = 0; i < globas.touristPlaces.length; i++)
                     TagIcon(
@@ -44,9 +51,20 @@ class _SurpriseMeState extends State<SurpriseMe> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
+            Container(
+                child: Lottie.asset('assets/lot/walk.json',
+                    height: height * 0.23, fit: BoxFit.fitHeight)),
+            const SizedBox(
+              height: 20,
             ),
+            primIntro(
+                contents: globas.parkInfo[globas.rng][2],
+                title: globas.parkInfo[globas.rng][1],
+                themeC: globas.parkInfo[globas.rng][4],
+                url: globas.parkInfo[globas.rng][5],
+                img: globas.parkInfo[globas.rng][0],
+                butIcon: globas.parkInfo[globas.rng][3]),
+            const Spacer(),
           ],
         ),
       ),

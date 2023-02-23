@@ -46,3 +46,39 @@ List<NearbyPlaceModel> nearbyPlaces = [
     distance: "22 km",
   ),
 ];
+List<NearbyPlaceModel> nearbyPlacesCN = [
+  NearbyPlaceModel(
+    image: "assets/places/BayfrontPark.jpg",
+    name: "岸前公园",
+    distance: "5 km",
+  ),
+  NearbyPlaceModel(
+    image: "assets/places/ChristieLake.jpg",
+    name: "克里斯蒂湖",
+    distance: "8 km",
+  ),
+  NearbyPlaceModel(
+      image: "assets/places/CootesParadiseTrail.jpg",
+      name: "CP 小道",
+      distance: '2 km'),
+  NearbyPlaceModel(
+    image: "assets/places/GagePark.jpg",
+    name: "盖奇公园",
+    distance: "10 km",
+  ),
+  NearbyPlaceModel(
+    image: "assets/places/TiffanyFalls.jpg",
+    name: "蒂芙尼瀑布",
+    distance: "15 km",
+  ),
+  NearbyPlaceModel(
+    image: "assets/places/WaterfrontTrail.jpg",
+    name: "湖边小道",
+    distance: "20 km",
+  ),
+  NearbyPlaceModel(
+    image: "assets/places/DevilPunchbowlFalls.jpg",
+    name: "德芙瀑布",
+    distance: "22 km",
+  ),
+];

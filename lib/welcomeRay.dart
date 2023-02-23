@@ -12,15 +12,11 @@ class WelcomeR extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     List<List> contents = [
       [
-        'assets/icons/WelcomePageIcon.png',
-        "Explore and Enjoy places \nin Hamilton",
-        'assets/lot/walk.json'
-      ],
-      [
         'assets/icons/spring.png',
         'Enjoy Spring Flower in Hamilton',
-        'assets/lot/bike2.json'
+        'assets/lot/walk.json',
       ],
+      ['assets/img/summer.png', "Enjoy the Sunshine", 'assets/lot/beach.json'],
       [
         'assets/icons/fall.png',
         'Immerse yourself in golden maple',
@@ -53,7 +49,7 @@ class WelcomeR extends StatelessWidget {
                         child: Container(
                           width: width * 0.8,
                           height: height * 0.8,
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               color: Colors.grey.shade100.withOpacity(0.68)),
@@ -62,25 +58,19 @@ class WelcomeR extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Lottie.asset(contents[i][2],
-                                  height: height * 0.2, fit: BoxFit.fitHeight),
+                                  height: height * 0.25, fit: BoxFit.fitHeight),
+                              const SizedBox(height: 30),
                               Text(
                                 contents[i][1],
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'hs'),
                               ),
-                              const SizedBox(height: 20),
-                              const Text(
-                                "Add Description",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.black54),
-                              ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 30),
                               Padding(
-                                padding: const EdgeInsets.only(bottom: 30),
+                                padding: const EdgeInsets.all(10),
                                 child: SizedBox(
                                   width: double.maxFinite,
                                   child: ElevatedButton(
@@ -95,6 +85,7 @@ class WelcomeR extends StatelessWidget {
                                       "Get Started",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
+                                          fontFamily: 'hs',
                                           fontSize: height * 0.03),
                                     ),
                                     style: ElevatedButton.styleFrom(
