@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/layout/lay1.dart';
 import 'theme.dart';
+import 'package:myapp/layout/buttomNavi.dart';
 
 class RecommandPage extends StatefulWidget {
   const RecommandPage({super.key});
@@ -10,7 +11,7 @@ class RecommandPage extends StatefulWidget {
 }
 
 class _RecommandPageState extends State<RecommandPage> {
-  List parkInfo = [
+  List<List> parkInfo = [
     [
       "assets/img/abfall.jpg",
       "Albion Falls",
@@ -68,16 +69,22 @@ class _RecommandPageState extends State<RecommandPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          for (var i = 0; i < parkInfo.length; i++)
-            LayOutT1(
-                dis: 4.5,
-                img: parkInfo[i][1],
-                title: parkInfo[i][2],
-                webTo: parkInfo[i][6])
-        ],
+    return Scaffold(
+      appBar: AppBar(title: Text("Recommendation")),
+      bottomNavigationBar: ButtomNavi(),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              for (var i = 0; i < parkInfo.length; i++)
+                LayOutT1(
+                    dis: 4.5,
+                    img: parkInfo[i][0],
+                    title: parkInfo[i][1],
+                    webTo: parkInfo[i][5])
+            ],
+          ),
+        ),
       ),
     );
   }
