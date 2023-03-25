@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:myapp/layout/lay2.dart';
 import 'package:myapp/globals.dart' as globas;
-import 'primaryIntro.dart';
+import 'dart:math';
 import 'package:myapp/layout/buttomNavi.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:myapp/globals.dart' as global;
 
 class SurpriseMe extends StatefulWidget {
   const SurpriseMe({super.key});
@@ -57,18 +59,100 @@ class _SurpriseMeState extends State<SurpriseMe> {
             const SizedBox(
               height: 20,
             ),
-            primIntro(
-                contents: globas.parkInfo[globas.rng][2],
-                title: globas.parkInfo[globas.rng][1],
-                themeC: globas.parkInfo[globas.rng][4],
-                url: globas.parkInfo[globas.rng][5],
-                img: globas.parkInfo[globas.rng][0],
-                butIcon: globas.parkInfo[globas.rng][3]),
-            const Spacer(),
+            TextButton.icon(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            side: BorderSide(color: Colors.black, width: 3))),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(20))),
+                icon: Lottie.asset('assets/lot/surp.json', height: 35),
+                label: Text(
+                  "Surprise Me",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                onPressed: () {
+                  global.rng = Random().nextInt(global.parkInfo.length);
+                  showDia(
+                      globas.parkInfo[globas.rng][1],
+                      globas.parkInfo[globas.rng][0],
+                      globas.parkInfo[globas.rng][2],
+                      globas.parkInfo[globas.rng][5],
+                      globas.parkInfo[globas.rng][3]);
+                }),
+            const Spacer()
           ],
         ),
       ),
       bottomNavigationBar: ButtomNavi(),
     );
+  }
+
+  showDia(title, img, contents, url, butIcon) {
+    return showGeneralDialog(
+        barrierColor: Colors.black.withOpacity(0.5),
+        transitionDuration: Duration(milliseconds: 300),
+        barrierDismissible: true,
+        barrierLabel: '',
+        context: context,
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return Container();
+        },
+        transitionBuilder: (context, a1, a2, widgets) {
+          return Transform.scale(
+              scale: a1.value,
+              child: Opacity(
+                  opacity: a1.value,
+                  child: SimpleDialog(
+                    contentPadding: const EdgeInsets.all(8),
+                    shape: Border.all(
+                      width: 4,
+                      style: BorderStyle.solid,
+                      color: Colors.white,
+                    ),
+                    title: Row(
+                      children: [
+                        Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "honey",
+                          ),
+                        ),
+                      ],
+                    ),
+                    children: [
+                      Image(image: AssetImage(img)),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        contents,
+                      ),
+                      ElevatedButton.icon(
+                          icon: butIcon,
+                          onPressed: (() {
+                            _launchURL(url);
+                          }),
+                          label: const Text(
+                            "More Info",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "honey"),
+                          ))
+                    ],
+                  )));
+        });
+  }
+
+  _launchURL(url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

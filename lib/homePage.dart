@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int trans = 1;
+  int trans = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
