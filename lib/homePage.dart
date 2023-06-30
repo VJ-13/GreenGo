@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:location/location.dart';
 import 'package:myapp/widgets/custom_icon_button.dart';
 import 'package:myapp/widgets/location_card.dart';
 import 'package:myapp/widgets/nearby_places.dart';
@@ -27,8 +28,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blue.shade500,
-        foregroundColor: Colors.black,
+        backgroundColor: Color.fromRGBO(116, 29, 74,1.0),
+        foregroundColor: Colors.white,
         actions: [
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 12.0),

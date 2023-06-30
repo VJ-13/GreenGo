@@ -10,7 +10,7 @@ List parkInfo = [
     "Albion Falls",
     "At 62 ft., Albion Falls is considered to be one of the most beautiful waterfalls in the Hamilton community, whose classic ‘cascade’ waterway features picturesque observation points, leisurely hiking trails, and family-friendly picnic spots.",
     Icon(Icons.waterfall_chart),
-    MaterialStateProperty.all(Colors.lightBlueAccent),
+    MaterialStateProperty.all(Color.fromRGBO(116, 29, 74, 1.0)),
     "https://nature.mcmaster.ca/area/albion-falls/",
     ["Fall", "Bike", "Bus", "Hiking"]
   ],
@@ -19,7 +19,7 @@ List parkInfo = [
     "Bayfront Park",
     "Found along the banks of Lake Ontario, Bayfront Park is a 40-acre park in the West-end of Hamilton Harbour. Connected to the beautiful Hamilton Waterfront Trail, specifically the Desjardins Trail, the park is a great place to start or end a waterfront stroll. ",
     Icon(Icons.padding),
-    MaterialStateProperty.all(Colors.blue),
+    MaterialStateProperty.all(Color.fromRGBO(116, 29, 74, 1.0)),
     "https://nature.mcmaster.ca/area/bayfront-park/",
     ["Lake", "Bus", "Bike", "Boating", "Biking"]
   ],

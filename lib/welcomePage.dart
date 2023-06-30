@@ -67,7 +67,7 @@ class WelcomePage extends StatelessWidget {
                   },
                   child: Text("Get Started"),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Color.fromRGBO(116, 29, 74, 1.0),
                       shape: StadiumBorder(),
                       padding:
                           EdgeInsets.symmetric(vertical: 15, horizontal: 8)),

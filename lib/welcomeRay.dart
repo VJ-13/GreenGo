@@ -89,7 +89,7 @@ class WelcomeR extends StatelessWidget {
                                           fontSize: height * 0.03),
                                     ),
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.blue,
+                                        backgroundColor: Color.fromRGBO(116, 29, 74, 1.0),
                                         shape: StadiumBorder(),
                                         padding: EdgeInsets.symmetric(
                                             vertical: 15, horizontal: 8)),

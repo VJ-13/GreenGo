@@ -34,7 +34,7 @@ class _LocationCardState extends State<LocationCard> {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  widget.trans < 0 ? "Hamilton, Ontario" : "哈密尔顿，安大略",
+                  widget.trans < 0 ? "McMaster University" : "哈密尔顿，安大略",
                   style: Theme.of(context).textTheme.labelLarge,
                 )
               ],
