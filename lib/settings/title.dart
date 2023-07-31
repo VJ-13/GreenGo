@@ -1,18 +1,15 @@
+// Importing packages and custom widgets
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-class ProfileTile extends StatelessWidget {
+// Defining the SettingTitle class as a StatelessWidget
+class SettingTitle extends StatelessWidget {
   final IconData icon;
   final String title;
   final VoidCallback onTap;
+  const SettingTitle({ Key? key, required this.icon, required this.title, required this.onTap}) : super(key: key);
 
-  const ProfileTile({
-    Key? key,
-    required this.icon,
-    required this.title,
-    required this.onTap,
-  }) : super(key: key);
-
+  // Build method to create the UI for the SettingTitle widget
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +17,11 @@ class ProfileTile extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-          color: Color.fromRGBO(255,191,104,1.0),
+        color: Color.fromRGBO(255, 191, 104, 1.0),
       ),
       child: Row(
         children: [
+          // Container to hold the icon on the left side of the setting tile
           Container(
             width: 50,
             height: 50,
